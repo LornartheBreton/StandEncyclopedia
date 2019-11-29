@@ -41,7 +41,6 @@ public class Encyclopedia {
 	
 	public void readMasterFile() {
 		File master=new File("Data/standMasters.csv");
-		Master add;
 		String name,nameSake,image;
 		double height;
 		char sex;
@@ -76,8 +75,116 @@ public class Encyclopedia {
 		}
 	}
 	
+	public boolean addStand(String name, int debut, String master, char d,char s,char r, char p, char pr,char de, String type, String ability, String namesake,
+			String image,String battleCry) {
+		boolean ans=false;
+		Stand add;
+		int y,deb=debut-3;
+		char[] stats= {d,s,r,p,pr,de};
+		Master search=new Master(master);
+		
+		if(standsCounter[deb]<MAX_STANDS) {
+			y=ArrayManager.search(masters[deb],search,mastersCounter[deb]);
+			if(!battleCry.isEmpty()) {
+				add=new Stand(name,debut,master,stats,type,ability,namesake,
+				image,y,battleCry);
+			}else {
+				add=new Stand(name,debut,master,stats,type,ability,namesake,
+						image,y);
+			}
+			stands[deb][standsCounter[deb]]=add;
+			standsCounter[deb]++;
+			ans=true;
+		}
+		
+		return ans;
+	}
+	
+	public void readStandFile() {
+		File stands=new File("Data/stands.csv");
+		String name,master,type,ability,namesake,image,battleCry;
+		char d,s,r,p,pr,de;
+		int debut;
+		
+		try (Scanner scn=new Scanner(stands)){
+			scn.nextLine();
+			while(scn.hasNext()) {
+				scn.useDelimiter(",|\\n");
+				name=scn.next();
+				//System.out.println(name);
+				master=scn.next();
+				//System.out.println(nameSake);
+				debut=Integer.parseInt(String.valueOf(scn.next().charAt(0)));
+				//System.out.println(debut);
+				d=scn.next().charAt(0);
+				//System.out.println(height);
+				s=scn.next().charAt(0);
+				//System.out.println(sex);
+				r=scn.next().charAt(0);
+				//System.out.println(yearOfBirth);
+				p=scn.next().charAt(0);
+				//System.out.println(image);
+				pr=scn.next().charAt(0);
+				de=scn.next().charAt(0);
+				type=scn.next();
+				ability=scn.next();
+				image=scn.next();
+				battleCry=scn.next();
+				namesake=scn.next();
+				//System.out.println(battleCry);
+				addStand(name, debut, master, d,s,r,p,pr,de,type,ability,namesake,
+						image,battleCry);
+				//System.out.println(yearOfBirth);
+			}
+			
+			scn.close();
+		}catch(FileNotFoundException fnfe) {
+			System.err.println("Could not find standMaster file"+fnfe);
+			System.exit(-1);
+		}
+	}
+	
 	public Master getMaster(int x, int y) {
 		x-=3;
+		
 		return masters[x][y];
+	}
+	
+	public Stand getStand(int x, int y) {
+		x-=3;
+		
+		return stands[x][y];
+	}
+	
+	public String toString() {
+		StringBuilder build=new StringBuilder();
+		
+		build.append("\nStand Masters");
+		build.append("\n	Part 3 - Stardust Crusaders");
+		for(int i=0;i<mastersCounter[0];i++) {
+			build.append("\n			"+masters[0][i].toString());
+		}
+		build.append("\n	Part 4 - Diamond is Unbreakable");
+		for(int i=0;i<mastersCounter[1];i++) {
+			build.append("\n			"+masters[1][i].toString());
+		}
+		build.append("\n	Part 5 - Vento Aureo");
+		for(int i=0;i<mastersCounter[2];i++) {
+			build.append("\n			"+masters[2][i].toString());
+		}
+		build.append("\nStands");
+		build.append("\n	Part 3 - Stardust Crusaders");
+		for(int i=0;i<standsCounter[0];i++) {
+			build.append("\n			"+stands[0][i].toString());
+		}
+		build.append("\n	Part 4 - Diamond is Unbreakable");
+		for(int i=0;i<standsCounter[1];i++) {
+			build.append("\n			"+stands[1][i].toString());
+		}
+		build.append("\n	Part 5 - Vento Aureo");
+		for(int i=0;i<standsCounter[2];i++) {
+			build.append("\n			"+stands[2][i].toString());
+		}
+		return build.toString();
 	}
 }

@@ -29,7 +29,10 @@ public class Master <T extends Comparable<T>>{
 		this.image = image;
 		this.debut = debut;
 	}
-
+	
+	public Master(String name) {
+		this.name=name;
+	}
 	public String getName() {
 		return name;
 	}

@@ -19,19 +19,19 @@ public class Main {
 		Encyclopedia enc=new Encyclopedia();
 		
 		enc.readMasterFile();
-		
-		System.out.println(enc.getMaster(5, 0).getYearOfBirth());
-		String image="Data/Stands/Images/StarPlatinum.png";
+		enc.readStandFile();
+		//System.out.println(enc.getStand(5, 0).toString());
 		JFrame frame = new JFrame();
-		ImageIcon icon=new ImageIcon(enc.getMaster(5, 0).getImage());
+		ImageIcon icon=new ImageIcon(enc.getStand(5, 1).getImage());
 		JLabel label = new JLabel(icon);
 		  frame.add(label);
 		  frame.setDefaultCloseOperation
 		         (JFrame.EXIT_ON_CLOSE);
 		  frame.pack();
 		  frame.setVisible(true);
-		  
-		//Player ply=new Player(new FileInputStream(StarPlatinum.getBattleCty()));
+		
+		System.out.println(enc.toString());
+		//Player ply=new Player(new FileInputStream(enc.getStand(5, 1).getBattleCry()));
 		
 		//ply.play();
 		

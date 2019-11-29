@@ -6,6 +6,7 @@
 public class Stand <T extends Comparable <T>>{
 	private String name;
 	private String masterName;
+	private int debut;
 	private int[] masterReference=new int[2];
 	private char[] stats=new char[6];
 	private String type;
@@ -14,29 +15,32 @@ public class Stand <T extends Comparable <T>>{
 	private String namesake;//Most Stands are named after bands, songs or Tarot cards (i.e. Red Hot Chilli Peppers, Dirty Deeds Done Dirt Cheap, The World)
 	private String image;
 	//Two constructors because not all Stands have Battlecries (i.e. Love Deluxe)
-	public Stand(String name, String master, char[] stats, String type, String ability, String namesake,
-			String image,int x, int y) {
+	public Stand(String name,int debut, String master, char[] stats, String type, String ability, String namesake,
+			String image, int y) {
 		this.name = name;
+		this.debut=debut;
 		masterName = master;
 		this.stats = stats;
 		this.type = type;
 		this.ability = ability;
 		this.namesake = namesake;
 		this.image = image;
-		masterReference[0]=x;
+		masterReference[0]=debut;
 		masterReference[1]=y;
 	}
 
-	public Stand(String name, String master, char[] stats, String type, String ability, String namesake,
-			String image,int x,int y,String battleCry) {
+	public Stand(String name,int debut, String master, char[] stats, String type, String ability, String namesake,
+			String image,int y,String battleCry) {
 		this.name = name;
+		this.debut=debut;
 		masterName = master;
 		this.stats = stats;
 		this.type = type;
 		this.ability = ability;
 		this.namesake = namesake;
 		this.image = image;
-		masterReference[0]=x;
+		this.battleCry=battleCry;
+		masterReference[0]=debut;
 		masterReference[1]=y;
 	}
 
@@ -46,6 +50,23 @@ public class Stand <T extends Comparable <T>>{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	
+	public int getDebut() {
+		return debut;
+	}
+
+	public void setDebut(int debut) {
+		this.debut = debut;
+	}
+	
+	public int[] getMasterReference() {
+		return masterReference;
+	}
+
+	public void setMasterReference(int[] masterReference) {
+		this.masterReference = masterReference;
 	}
 
 	public String getMasterName() {
@@ -80,11 +101,11 @@ public class Stand <T extends Comparable <T>>{
 		this.ability = ability;
 	}
 
-	public String getBattleCty() {
-		return battleCry;
+	public String getBattleCry() {
+		return "Data/Stands/Battlecries/"+battleCry;
 	}
 
-	public void setBattleCty(String battleCry) {
+	public void setBattleCry(String battleCry) {
 		this.battleCry = battleCry;
 	}
 
@@ -97,7 +118,7 @@ public class Stand <T extends Comparable <T>>{
 	}
 
 	public String getImage() {
-		return image;
+		return "Data/Stands/Images/"+image;
 	}
 
 	public void setImage(String image) {
@@ -186,6 +207,7 @@ public class Stand <T extends Comparable <T>>{
 		
 		build.append("\nStand");
 		build.append("\n	Name: "+name);
+		build.append("\n	Debut: "+debut);
 		build.append("\n	Master: "+masterName);
 		build.append("\n	Type: "+type);
 		build.append("\n	Namesake: "+namesake);

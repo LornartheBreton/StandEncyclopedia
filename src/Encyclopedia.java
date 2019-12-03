@@ -149,7 +149,7 @@ public class Encyclopedia {
 			
 			scn.close();
 		}catch(FileNotFoundException fnfe) {
-			System.err.println("Could not find standMaster file"+fnfe);
+			System.err.println("Could not find stands file"+fnfe);
 			System.exit(-1);
 		}
 	}

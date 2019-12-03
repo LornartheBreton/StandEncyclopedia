@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -13,7 +14,7 @@ public class Encyclopedia {
 	private int[] standsCounter= {0,0,0};
 	private int[] mastersCounter= {0,0,0};
 	private final int PARTS=3;
-	private final int MAX_STANDS=33;
+	private final int MAX_STANDS=34;
 	
 	public Encyclopedia() {
 		stands=new Stand[PARTS][MAX_STANDS];
@@ -48,25 +49,33 @@ public class Encyclopedia {
 		
 		try (Scanner scn=new Scanner(master)){
 			scn.nextLine();
+			scn.useDelimiter(",|\\n");
 			while(scn.hasNext()) {
 				//System.out.println(scn.hasNext());
-				scn.useDelimiter(",|\n");
 				name=scn.next();
-				System.out.println(name);
+				//System.out.println(name);
+				//System.out.println(scn.hasNext());
 				nameSake=scn.next();
 				//System.out.println(nameSake);
+				//System.out.println(scn.hasNext());
 				height=scn.nextDouble();
 				//System.out.println(height);
+				//System.out.println(scn.hasNext());
 				sex=scn.next().charAt(0);
 				//System.out.println(sex);
+				//System.out.println(scn.hasNext());
 				yearOfBirth=scn.nextInt();
 				//System.out.println(yearOfBirth);
+				//System.out.println(scn.hasNext());
 				image=scn.next();
 				//System.out.println(image);
+				//System.out.println(scn.hasNext());
 				debut=Integer.parseInt(String.valueOf(scn.next().charAt(0)));
 				//System.out.println(debut);
 				addMaster(name,nameSake,height,sex,yearOfBirth,image,debut);
 				//System.out.println(yearOfBirth);
+				//h=scn.nextLine();
+				//System.out.println(h);
 			}
 			
 			scn.close();
@@ -155,6 +164,34 @@ public class Encyclopedia {
 		x-=3;
 		
 		return stands[x][y];
+	}
+	
+	public ArrayList<Master> findMaster(String name) {
+		ArrayList<Master> result=new ArrayList<Master>();
+		
+		for(int i=0;i<PARTS;i++) {
+			for(int c=0;c<mastersCounter[i];c++) {
+				if(masters[i][c].getName().contains(name)) {
+					result.add(masters[i][c]);
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	public ArrayList<Stand> findStand(String name) {
+		ArrayList<Stand> result=new ArrayList<Stand>();
+		
+		for(int i=0;i<PARTS;i++) {
+			for(int c=0;c<standsCounter[i];c++) {
+				if(stands[i][c].getName().contains(name)) {
+					result.add(stands[i][c]);
+				}
+			}
+		}
+		
+		return result;
 	}
 	
 	public String toString() {

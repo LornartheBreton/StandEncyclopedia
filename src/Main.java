@@ -30,7 +30,7 @@ public class Main {
 		  frame.pack();
 		  frame.setVisible(true);
 		
-		System.out.println(enc.toString());
+		System.out.println(enc.findMaster("Jo"));
 		//Player ply=new Player(new FileInputStream(enc.getStand(5, 1).getBattleCry()));
 		
 		//ply.play();

@@ -41,17 +41,18 @@ public class Encyclopedia {
 	
 	public void readMasterFile() {
 		File master=new File("Data/standMasters.csv");
-		String name,nameSake,image;
-		double height;
+		String name,nameSake,image,h;
+		double height=0.0;
 		char sex;
-		int yearOfBirth,debut;
+		int yearOfBirth=0,debut;
 		
 		try (Scanner scn=new Scanner(master)){
 			scn.nextLine();
 			while(scn.hasNext()) {
-				scn.useDelimiter(",|\\n");
+				//System.out.println(scn.hasNext());
+				scn.useDelimiter(",|\n");
 				name=scn.next();
-				//System.out.println(name);
+				System.out.println(name);
 				nameSake=scn.next();
 				//System.out.println(nameSake);
 				height=scn.nextDouble();

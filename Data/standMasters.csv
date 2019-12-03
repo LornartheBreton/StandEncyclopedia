@@ -1,4 +1,4 @@
-﻿name,nameSake,height,sex,yearOfBirth,image,debut
+﻿﻿name,nameSake,height,sex,yearOfBirth,image,debut
 Jotaro Kujo,Common Japanese name,1.95,M,1970,JotaroKujo.png,3
 Muhammad Avdol,Paula Avdul (singer),1.88,M,1960,MuhammadAvdol.png,3
 Old Joseph Joestar,JOseph JOestar,1.95,M,1920,OldJosephJoestar.png,3
@@ -6,33 +6,33 @@ Noriaki Kakyoin,Kakyoin (Japanese town),1.78,M,1970,NoriakiKakyoin,3
 Jean Pierre Polnareff,Jean-Paul Belmondo (actor) & Michael Polnareff (musician),1.85,M,1968,JeanPierrePolnareff.png,3
 Iggy,Iggy Pop (singer),0.33,M,1983,Iggy.png,3
 Dio Brando,DIO (heavy metal band),1.95,M,1878,DioBrando.png,3
-Gray Fly,Glenn Frey (member of The Eagles),,M,,GrayFly.png,3
-Impostor Captain Tenille,Captain & Tenille (American pop duo),,M,,Captain.png,3
-Forever,Wu-Tang Forever (musical album),,M,,Forever.png,3
-Devo the Cursed,Devo (American band),,M,,Devo.png,3
-Rubber Soul,Rubber Soul (Beatles album),,M,,RubberSoul.png,3
-J.Geil,The J. Geils Band (American rock band),,M,,JGeil.png,3
+Gray Fly,Glenn Frey (member of The Eagles),0,M,0,GrayFly.png,3
+Impostor Captain Tenille,Captain & Tenille (American pop duo),0,M,0,Captain.png,3
+Forever,Wu-Tang Forever (musical album),0,M,0,Forever.png,3
+Devo the Cursed,Devo (American band),0,M,0,Devo.png,3
+Rubber Soul,Rubber Soul (Beatles album),0,M,0,RubberSoul.png,3
+J.Geil,The J. Geils Band (American rock band),0,M,0,JGeil.png,3
 Hol Horse,Hall & Oates (American pop duo),1.88,M,1957,HolHorse.png,3
-Nena,Nena (German singer),,F,,Nena.png,3
-ZZ,ZZ Top (American rock band),,M,,ZZ.png,3
-Enya the Hag,Enya (Irish singer),,F,,Enya.png,3
-Steely Dan,Steely Dan (American band),,M,,SteelyDan.png,3
-Arabian Fats,Fats Domino (American pianist),,M,,ArabianFats.png,3
-Mannish Boy,Mannish Boy (Muddy Waters song),,M,,MannishBoy.png,3
-Cameo,Cameo (American rock band),,M,,Cameo.png,3
-Middler,Bette Midler (singer/actress),,F,,Middler.png,3
-N'Doul,Youssou N'Dour (singer),,M,,NDoul.png,3
-Oingo,Oingo Boingo (American rock band),,M,,Oingo.png,3
-Boingo,Oingo Boingo (American rock band),,M,,Boingo.png,3
-Chaka,Chaka Khan (American singer),,M,,Chaka.png,3
-Khan,Chaka Khan (American singer),,M,,Khan.png,3
-Mariah,Mariah Carey (American singer),,F,,Mariah.png,3
-Alessi,Alessi Brothers (American pop duo),,M,,Alessi.png,3
-Daniel J. D'Arby,Terence Trent D'Arby (singer),,M,,Elder.png,3
-Pet Shop,Pet Shop Boys (Electronic pop duo),,M,,PetShop.png,3
-Telence T. D'Arby,Terence Trent D'Arby (singer),,M,,Younger.png,3
-Kenny G.,Kenny G. (American saxophonist),,M,,KennyG.png,3
-Vanilla Ice,Vanilla Ice (American rapper),,M,,VanillaIce.png,3
+Nena,Nena (German singer),0,F,0,Nena.png,3
+ZZ,ZZ Top (American rock band),0,M,0,ZZ.png,3
+Enya the Hag,Enya (Irish singer),0,F,0,Enya.png,3
+Steely Dan,Steely Dan (American band),0,M,0,SteelyDan.png,3
+Arabian Fats,Fats Domino (American pianist),0,M,0,ArabianFats.png,3
+Mannish Boy,Mannish Boy (Muddy Waters song),0,M,0,MannishBoy.png,3
+Cameo,Cameo (American rock band),0,M,0,Cameo.png,3
+Middler,Bette Midler (singer/actress),0,F,0,Middler.png,3
+N'Doul,Youssou N'Dour (singer),0,M,0,NDoul.png,3
+Oingo,Oingo Boingo (American rock band),0,M,0,Oingo.png,3
+Boingo,Oingo Boingo (American rock band),0,M,0,Boingo.png,3
+Chaka,Chaka Khan (American singer),0,M,0,Chaka.png,3
+Khan,Chaka Khan (American singer),0,M,0,Khan.png,3
+Mariah,Mariah Carey (American singer),0,F,0,Mariah.png,3
+Alessi,Alessi Brothers (American pop duo),0,M,0,Alessi.png,3
+Daniel J. D'Arby,Terence Trent D'Arby (singer),0,M,0,Elder.png,3
+Pet Shop,Pet Shop Boys (Electronic pop duo),0,M,0,PetShop.png,3
+Telence T. D'Arby,Terence Trent D'Arby (singer),0,M,0,Younger.png,3
+Kenny G.,Kenny G. (American saxophonist),0,M,0,KennyG.png,3
+Vanilla Ice,Vanilla Ice (American rapper),0,M,0,VanillaIce.png,3
 Josuke Higashikata,"""-suke"" can also be read as ""Jo""",1.8,M,1983,JosukeHigashikata.png,4
 Okuyasu Nijimura,Common Japanese name,1.78,M,1983,OkuyasuNijimura.png,4
 Koichi Hirose,The Hirose River,1.57,M,1984,KoichiHirose.png,4
@@ -44,19 +44,19 @@ Akira Otoishi,Common Japanese name,1.77,M,1979,AkiraOtoishi.png,4
 Tamani Kobayashi,Common Japanese name,1.53,M,1979,TamaniKobayashi.png,4
 Toshikazu Hazamada,Common Japanese name,1.65,M,1984,Hazamada.png,4
 Yukako Yamagishi,Common Japanese name,1.67,M,1984,YukakoYamagishi.png,4
-"Antonio ""Tonio"" Trussardi",Nicola Trussardi (fashion designer),,M,,Tonio.png,4
-Shizuka Joestar,"The kanji for Shizuka means ""quiet""",,F,,ShizukaJoestar.png,4
-Bug-Eaten,"Mushikui meaning ""Bug Eaten""",,M,,Rat.png,4
+"Antonio ""Tonio"" Trussardi",Nicola Trussardi (fashion designer),0,M,0,Tonio.png,4
+Shizuka Joestar,"The kanji for Shizuka means ""quiet""",0,F,0,ShizukaJoestar.png,4
+Bug-Eaten,"Mushikui meaning ""Bug Eaten""",0,M,0,Rat.png,4
 "Shigekiyo ""Shigechi"" Yangu",Neil Young (Canadian singer),1.6,M,1986,Shigechi.png,4
-Aja Tsuji,Common Japanese name,,F,,AyaTsuji.png,4
-Yoshihiro Kira,Yoshihisa Kira (Japanese noble),,M,,YoshihiroKira.png,4
-Ken Oyanagi,Common Japanese name,,M,,KenOyanagi.png,4
+Aja Tsuji,Common Japanese name,0,F,0,AyaTsuji.png,4
+Yoshihiro Kira,Yoshihisa Kira (Japanese noble),0,M,0,YoshihiroKira.png,4
+Ken Oyanagi,Common Japanese name,0,M,0,KenOyanagi.png,4
 Mikitaka Hazekura,Common Japanese name,1.83,M,1783,Mikitaka.png,4
-Yuya Fungami,Common Japanese name,,M,,YuyaFungami.png,4
-Tama,Common Japanese name,,M,,Tama.png,4
-Toyohiro Kanedaichi,Common Japanese name,,M,,Toyohiro.png,4
-Terunosuke Miyamoto,Common Japanese name,,M,,Miyamoto.png,4
-Masazo Kinoto,Common Japanese name,,M,,Masazo.png,4
+Yuya Fungami,Common Japanese name,0,M,0,YuyaFungami.png,4
+Tama,Common Japanese name,0,M,0,Tama.png,4
+Toyohiro Kanedaichi,Common Japanese name,0,M,0,Toyohiro.png,4
+Terunosuke Miyamoto,Common Japanese name,0,M,0,Miyamoto.png,4
+Masazo Kinoto,Common Japanese name,0,M,0,Masazo.png,4
 Giorno Giovanna,"Giorno (""Day"" in Italian)",1.72,M,1985,GiornoGiovanna.png,5
 Bruno Bucciarati,Buccellati (Sicilian fig cookie),1.78,M,1980,BrunoBucciarati.png,5
 Leone Abbacchio,"Leone: ""lion"" in Italian & Abbacchio ""lamb meat"" in Italian",1.88,M,1980,LeoneAbbacchio.png,5
@@ -65,20 +65,20 @@ Narancia Ghirga,"Arancia: ""Orange"" in Italian",1.64,M,1983,NaranciaGhirga.png,
 Panacota Fugo,"Panna cotta: an Italian pudding & Fugo: ""Dismissing"" in Italian",1.72,M,1985,PannacottaFugo.png,5
 Trish Una,"Trish Goff (American model) & Una: ""one"" in Italian",1.63,F,1985,TrishUna.png,5
 Diavolo,"""Devil"" in Italian",1.9,M,1967,Diavolo.png,5
-Polpo,"""Octopus"" in Italian",,M,,Polpo.png,5
-Mario Zucchero,"Zucchero: ""sugar"" in Italian",,M,,MarioZucchero.png,5
-Sale,"""Salt"" in Italian",,M,,Sale.png,5
-Formaggio,"""Cheese"" in Italian",,M,,Formaggio.png,5
-Illuso,"""Deluded"" in Italian",,M,,Illuso.png,5
-Coco Jumbo,Coco Jamboo (Mr. President song),,M,,CocoJumbo.png,5
-Pesci,"""Fishes"" in Italian",,M,,Pesci.png,5
-Prosciutto,Italian ham dish,,M,,Prosciutto.png,5
-Melone,"""Melon"" in Italian",,M,,Melone.png,5
-Ghiaccio,"""Ice"" in Italian",,M,,Ghiaccio.png,5
-Squalo,"""Shark: in Italian",,M,,Squalo.png,5
-Tiziano,Tiziano Vecelli (Italian painter),,M,,Tiziano.png,5
-Carne,"""Flesh/Meat"" in Italian",,M,,Carne.png,5
+Polpo,"""Octopus"" in Italian",0,M,0,Polpo.png,5
+Mario Zucchero,"Zucchero: ""sugar"" in Italian",0,M,0,MarioZucchero.png,5
+Sale,"""Salt"" in Italian",0,M,0,Sale.png,5
+Formaggio,"""Cheese"" in Italian",0,M,0,Formaggio.png,5
+Illuso,"""Deluded"" in Italian",0,M,0,Illuso.png,5
+Coco Jumbo,Coco Jamboo (Mr. President song),0,M,0,CocoJumbo.png,5
+Pesci,"""Fishes"" in Italian",0,M,0,Pesci.png,5
+Prosciutto,Italian ham dish,0,M,0,Prosciutto.png,5
+Melone,"""Melon"" in Italian",0,M,0,Melone.png,5
+Ghiaccio,"""Ice"" in Italian",0,M,0,Ghiaccio.png,5
+Squalo,"""Shark: in Italian",0,M,0,Squalo.png,5
+Tiziano,Tiziano Vecelli (Italian painter),0,M,0,Tiziano.png,5
+Carne,"""Flesh/Meat"" in Italian",0,M,0,Carne.png,5
 Rissotto Nero,"Rissotto (Italian rice dish) & Nero: ""black"" in Italian",1.85,M,1974,RissottoNero.png,5
 Cioccolata,"""Chocolate"" in Italian (feminine form)",1.84,M,1967,Cioccolata.png,5
-Secco,"""Dry"" in Italian",,M,,Secco.png,5
-Scolippi,Scaloppine (Italian meat dish),,M,,Scolippi.png,5
+Secco,"""Dry"" in Italian",0,M,0,Secco.png,5
+Scolippi,Scaloppine (Italian meat dish),0,M,0,Scolippi.png,5

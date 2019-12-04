@@ -22,7 +22,7 @@ public class Main {
 		enc.readStandFile();
 		//System.out.println(enc.getStand(5, 0).toString());
 		JFrame frame = new JFrame();
-		ImageIcon icon=new ImageIcon(enc.findMaster("Josuke").get(0).getImage());
+		ImageIcon icon=new ImageIcon(enc.findStand("Highway").get(0).getImage());
 		JLabel label = new JLabel(icon);
 		  frame.add(label);
 		  frame.setDefaultCloseOperation
@@ -31,9 +31,9 @@ public class Main {
 		  frame.setVisible(true);
 		
 		System.out.println(enc.findMaster("Riss").get(0).getImage());
-		//Player ply=new Player(new FileInputStream(enc.getStand(5, 1).getBattleCry()));
+		Player ply=new Player(new FileInputStream(enc.getStand(5, 1).getBattleCry()));
 		
-		//ply.play();
+		ply.play();
 		
 		
 	}

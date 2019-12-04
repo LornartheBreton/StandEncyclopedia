@@ -14,7 +14,7 @@ public class Encyclopedia {
 	private int[] standsCounter= {0,0,0};
 	private int[] mastersCounter= {0,0,0};
 	private final int PARTS=3;
-	private final int MAX_STANDS=34;
+	private final int MAX_STANDS=36;
 	
 	public Encyclopedia() {
 		stands=new Stand[PARTS][MAX_STANDS];
@@ -118,13 +118,13 @@ public class Encyclopedia {
 		
 		try (Scanner scn=new Scanner(stands)){
 			scn.nextLine();
+			scn.useDelimiter(",|\\n");
 			while(scn.hasNext()) {
-				scn.useDelimiter(",|\\n");
 				name=scn.next();
-				//System.out.println(name);
+				System.out.println(name);
 				master=scn.next();
-				//System.out.println(nameSake);
-				debut=Integer.parseInt(String.valueOf(scn.next().charAt(0)));
+				//System.out.println(master);
+				debut=scn.nextInt();
 				//System.out.println(debut);
 				d=scn.next().charAt(0);
 				//System.out.println(height);

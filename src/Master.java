@@ -74,10 +74,10 @@ public class Master <T extends Comparable<T>>{
 	}
 
 	public String getImage() {
+		String ans="Data/NF.png";
 		if(image!=null)
-			return "Data/Users/Pics/"+image;
-		else
-			return "Data/NF.png";
+			ans="Data/Users/Pics/"+image;
+		return ans;
 	}
 
 	public void setImage(String image) {

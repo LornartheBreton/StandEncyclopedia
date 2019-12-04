@@ -26,7 +26,7 @@ public class Encyclopedia {
 		boolean ans=false;
 		Master add;
 		
-		if(mastersCounter[debut-3]<MAX_STANDS) {
+		if(mastersCounter[debut-PARTS]<MAX_STANDS) {
 			ans=true;
 			if(height==0.0) {
 				add= new Master(name,namesake,sex,debut);
@@ -89,12 +89,15 @@ public class Encyclopedia {
 			String image,String battleCry) {
 		boolean ans=false;
 		Stand add;
-		int y,deb=debut-3;
+		int y=-1,deb=debut-PARTS,i=0;
 		char[] stats= {d,s,r,p,pr,de};
 		Master search=new Master(master);
 		
-		if(standsCounter[deb]<MAX_STANDS) {
-			y=ArrayManager.search(masters[deb],search,mastersCounter[deb]);
+		while(i<PARTS&&y==-1) {
+			y=ArrayManager.search(masters[i],search,mastersCounter[i]);
+			i++;
+		}
+		if(standsCounter[deb]<MAX_STANDS&&y!=-1) {
 			if(!battleCry.isEmpty()) {
 				add=new Stand(name,debut,master,stats,type,ability,namesake,
 				image,y,battleCry);
@@ -121,7 +124,7 @@ public class Encyclopedia {
 			scn.useDelimiter(",|\\n");
 			while(scn.hasNext()) {
 				name=scn.next();
-				System.out.println(name);
+				//System.out.println(name);
 				master=scn.next();
 				//System.out.println(master);
 				debut=scn.nextInt();
@@ -168,10 +171,11 @@ public class Encyclopedia {
 	
 	public ArrayList<Master> findMaster(String name) {
 		ArrayList<Master> result=new ArrayList<Master>();
+		name=name.toUpperCase();
 		
 		for(int i=0;i<PARTS;i++) {
 			for(int c=0;c<mastersCounter[i];c++) {
-				if(masters[i][c].getName().contains(name)) {
+				if(masters[i][c].getName().toUpperCase().contains(name)) {
 					result.add(masters[i][c]);
 				}
 			}
@@ -182,10 +186,11 @@ public class Encyclopedia {
 	
 	public ArrayList<Stand> findStand(String name) {
 		ArrayList<Stand> result=new ArrayList<Stand>();
+		name=name.toUpperCase();
 		
 		for(int i=0;i<PARTS;i++) {
 			for(int c=0;c<standsCounter[i];c++) {
-				if(stands[i][c].getName().contains(name)) {
+				if(stands[i][c].getName().toUpperCase().contains(name)) {
 					result.add(stands[i][c]);
 				}
 			}

@@ -1,7 +1,5 @@
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,13 +14,12 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException,
     JavaLayerException{
-		Encyclopedia enc=new Encyclopedia();
+		/*Encyclopedia enc=new Encyclopedia();
+		String search="josuke";
 		
-		enc.readMasterFile();
-		enc.readStandFile();
 		//System.out.println(enc.getStand(5, 0).toString());
 		JFrame frame = new JFrame();
-		ImageIcon icon=new ImageIcon(enc.findStand("bite").get(0).getImage());
+		ImageIcon icon=new ImageIcon(enc.findMaster(search).get(0).getImage());
 		JLabel label = new JLabel(icon);
 		  frame.add(label);
 		  frame.setDefaultCloseOperation
@@ -30,12 +27,13 @@ public class Main {
 		  frame.pack();
 		  frame.setVisible(true);
 		
-		System.out.println(enc.findStand("King").get(0).getImage());
+		//enc.findMaster("geil").get(0).setImage("JGeil.png");
+		System.out.println(enc.findMaster(search).get(0).toString());
 		Player ply=new Player(new FileInputStream(enc.getStand(5, 1).getBattleCry()));
 		
-		ply.play();
+		ply.play();*/
 		
-		
+		PrimaryController c=new PrimaryController("Jojo's Bizarre Encyclopedia");
 	}
 
 }

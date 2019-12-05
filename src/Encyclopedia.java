@@ -19,6 +19,8 @@ public class Encyclopedia {
 	public Encyclopedia() {
 		stands=new Stand[PARTS][MAX_STANDS];
 		masters=new Master[PARTS][MAX_STANDS];
+		readMasterFile();
+		readStandFile();
 	}
 	
 	public boolean addMaster(String name, String namesake, double height, char sex, int yearOfBirth, String image,
@@ -229,5 +231,17 @@ public class Encyclopedia {
 			build.append("\n			"+stands[2][i].toString());
 		}
 		return build.toString();
+	}
+	
+	public ArrayList<Stand> returnAsList(){
+		ArrayList<Stand> ans=new ArrayList<Stand>();
+		
+		for(int i=0; i<PARTS;i++) {
+			for(int c=0;c<standsCounter[i];c++) {
+				ans.add(stands[i][c]);
+			}
+		}
+		//System.out.println(ans);
+		return ans;
 	}
 }

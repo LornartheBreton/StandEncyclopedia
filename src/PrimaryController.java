@@ -16,6 +16,7 @@ public class PrimaryController extends PrimaryView{
 		for(int i=0; i<size;i++) {
 			buttons.get(i).addActionListener(new standListener());
 		}
+		search.addActionListener(new searchListener());
 	}
 	
 	private class standListener implements ActionListener{
@@ -31,6 +32,15 @@ public class PrimaryController extends PrimaryView{
 			System.out.println(enc.getMaster(t.getMasterReference()[0], t.getMasterReference()[1]).toString());
 			stando=new StandController(name,t,user);
 			img=new ImageView(name,t.getImage());
+		}
+		
+	}
+	
+	private class searchListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}

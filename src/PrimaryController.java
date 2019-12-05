@@ -22,11 +22,14 @@ public class PrimaryController extends PrimaryView{
 
 		public void actionPerformed(ActionEvent e) {
 			Stand t;
-			String name=e.getActionCommand();
+			Master user;
+			String name=e.getActionCommand(),master;
 			
 			t=enc.findStand(name).get(0);
+			master=t.getMasterName();
+			user=enc.findMaster(master).get(0);
 			System.out.println(enc.getMaster(t.getMasterReference()[0], t.getMasterReference()[1]).toString());
-			stando=new StandController(name,t);
+			stando=new StandController(name,t,user);
 			img=new ImageView(name,t.getImage());
 		}
 		

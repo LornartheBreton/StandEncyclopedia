@@ -129,6 +129,7 @@ public class Master <T extends Comparable<T>>{
 		build.append("\n	Namesake: "+namesake);
 		build.append("\n	Sex: "+sex);
 		if(yearOfBirth!=0) {
+			build.append("\n	Height: "+height+" m.");
 			build.append("\n	Year of Birth: "+yearOfBirth);
 		}
 		build.append("\n	Debut: Part "+debut);

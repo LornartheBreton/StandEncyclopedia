@@ -13,7 +13,7 @@ public class StandView extends JFrame{
 	protected ImageIcon img;
 	protected JLabel icon,nameL,debutL,masterL,typeL,namesakeL,abilityL,stats,dL,sL,rL,peL,prL,devL;
 	protected String name,master,type,namesake,ability,battlecry;
-	protected Font labelFont,textFont;
+	private Font labelFont;
 	protected JButton checkAbility,playBattlecry,checkMaster;
 	private int debut;
 	private char d,s,r,pe,pr,dev;

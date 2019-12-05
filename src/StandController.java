@@ -10,22 +10,28 @@ import java.io.FileNotFoundException;
  * The StandView controller
  */
 public class StandController extends StandView{
+	
 	private Stand t;
 	private AbilityView a;
-	private String ability,name,path;
+	private Master user;
+	private MasterView v;
+	private String ability,name,path,imgPath;
 	private Player ply;
 	
-	public StandController(String title, Stand stando) {
+	public StandController(String title, Stand stando,Master user) {
 		super(title, stando);
 		
 		t=stando;
 		name=title;
 		ability=t.getAbility();
 		path=t.getBattleCry();
+		master=t.getMasterName();
+		imgPath=user.getImage();
+		this.user=user;
+		
 		System.out.println(path);
 		this.checkAbility.addActionListener(new buttonListener());
 		this.checkMaster.addActionListener(new buttonListener());
-		
 		if(this.playBattlecry!=null) {
 			this.playBattlecry.addActionListener(new buttonListener());
 		}
@@ -35,6 +41,7 @@ public class StandController extends StandView{
 
 		public void actionPerformed(ActionEvent e){
 			String command=e.getActionCommand(),master=t.getMasterName();
+			ImageView img;
 			
 			if(command.equals("Read ability")) {
 				a=new AbilityView(name,ability);
@@ -50,7 +57,8 @@ public class StandController extends StandView{
 				}
 			}
 			if(command.equals(master)) {
-				
+				img=new ImageView(master,imgPath);
+				v=new MasterView(master,user);
 			}
 		}
 		

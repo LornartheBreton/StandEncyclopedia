@@ -31,7 +31,7 @@ public class Encyclopedia {
 		if(mastersCounter[debut-PARTS]<MAX_STANDS) {
 			ans=true;
 			if(height==0.0) {
-				add= new Master(name,namesake,sex,debut);
+				add= new Master(name,namesake,sex,debut,image);
 			}else {
 				add=new Master(name,namesake,height,sex,yearOfBirth,image,debut);
 			}
@@ -49,7 +49,8 @@ public class Encyclopedia {
 		char sex;
 		int yearOfBirth=0,debut;
 		
-		try (Scanner scn=new Scanner(master)){
+		masters=new Master[PARTS][MAX_STANDS];
+		try (Scanner scn=new Scanner(master,"UTF-8")){
 			scn.nextLine();
 			scn.useDelimiter(",|\\n");
 			while(scn.hasNext()) {
@@ -115,40 +116,68 @@ public class Encyclopedia {
 		return ans;
 	}
 	
+	public boolean addStandClass(Stand add) {
+		boolean ans=false;
+		int deb=add.getDebut()-PARTS;
+		Master search=new Master(add.getMasterName());
+		int i=0,y=-1;
+		
+		while(i<PARTS&&y==-1) {
+			y=ArrayManager.search(masters[i],search,mastersCounter[i]);
+			i++;
+		}
+		if(standsCounter[deb]<MAX_STANDS&&y!=-1) {
+			stands[deb][standsCounter[deb]]=add;
+			standsCounter[deb]++;
+			ans=true;
+		}
+		
+		return ans;
+	}
+	
 	public void readStandFile() {
-		File stands=new File("Data/stands.csv");
+		File standos=new File("Data/stands.csv");
 		String name,master,type,ability,namesake,image,battleCry;
 		char d,s,r,p,pr,de;
 		int debut;
 		
-		try (Scanner scn=new Scanner(stands)){
+		stands=new Stand[PARTS][MAX_STANDS];
+		try (Scanner scn=new Scanner(standos,"UTF-8")){
 			scn.nextLine();
 			scn.useDelimiter(",|\\n");
 			while(scn.hasNext()) {
+				System.out.println(scn.hasNext());
 				name=scn.next();
-				//System.out.println(name);
+				System.out.println(name);
 				master=scn.next();
 				//System.out.println(master);
 				debut=scn.nextInt();
 				//System.out.println(debut);
 				d=scn.next().charAt(0);
-				//System.out.println(height);
+				//System.out.println(d);
 				s=scn.next().charAt(0);
-				//System.out.println(sex);
+				//System.out.println(s);
 				r=scn.next().charAt(0);
-				//System.out.println(yearOfBirth);
+				//System.out.println(r);
 				p=scn.next().charAt(0);
-				//System.out.println(image);
+				//System.out.println(p);
 				pr=scn.next().charAt(0);
+				//System.out.println(pr);
 				de=scn.next().charAt(0);
+				//System.out.println(de);
 				type=scn.next();
+				//System.out.println(type);
 				ability=scn.next();
+				//System.out.println(ability);
 				image=scn.next();
+				//System.out.println(image);
 				battleCry=scn.next();
-				namesake=scn.next();
 				//System.out.println(battleCry);
-				addStand(name, debut, master, d,s,r,p,pr,de,type,ability,namesake,
-						image,battleCry);
+				namesake=scn.next();
+				//System.out.println(namesake);
+
+				System.out.println(addStand(name, debut, master, d,s,r,p,pr,de,type,ability,namesake,
+						image,battleCry));
 				//System.out.println(yearOfBirth);
 			}
 			
@@ -201,47 +230,85 @@ public class Encyclopedia {
 		return result;
 	}
 	
+	public Stand exactStandSearch(String name) {
+		Stand result=new Stand();
+		Stand s=new Stand(name);
+		int[] coord= {0,-1};
+		int i=0;
+		
+		while(i<PARTS&&coord[1]==-1) {
+			coord[1]=MatrixManager.findInRow(stands, s, i, standsCounter[i]);
+			i++;
+			System.out.println(coord[1]);
+		}
+		if(coord[1]!=-1) {
+			i--;
+			coord[0]=i;
+			System.out.println(coord[0]);
+			result=stands[coord[0]][coord[1]];
+		}
+		
+		return result;
+	}
+	
+	public Master exactMasterSearch(String name) {
+		Master result=new Master();
+		Master s=new Master(name);
+		int[] coord= {0,-1};
+		int i=0;
+		
+		while(i<PARTS&&coord[1]==-1) {
+			coord[1]=MatrixManager.findInRow(masters, s, i,mastersCounter[i]);
+			i++;
+		}
+		if(coord[1]!=-1) {
+			i--;
+			coord[0]=i;
+			result=masters[coord[0]][coord[1]];
+		}
+		
+		return result;
+	}
+	//For startup
+		public ArrayList<Stand> returnAsList(){
+			ArrayList<Stand> ans=new ArrayList<Stand>();
+			
+			for(int i=0; i<PARTS;i++) {
+				for(int c=0;c<standsCounter[i];c++) {
+					ans.add(stands[i][c]);
+					System.out.println(stands[i][c].toString());
+				}
+			}
+			
+			return ans;
+		}
+		//To search
+		public ArrayList<Stand> returnAsList(String search){
+			ArrayList<Stand> ans=new ArrayList<Stand>();
+			
+			search=search.toUpperCase();
+			for(int i=0; i<PARTS;i++) {
+				for(int c=0;c<standsCounter[i];c++) {
+					if(stands[i][c].getName().toUpperCase().contains(search)) {
+						ans.add(stands[i][c]);
+					}
+				}
+			}
+
+			return ans;
+		}
 	public String toString() {
 		StringBuilder build=new StringBuilder();
+		String standos, users;
 		
-		build.append("\nStand Masters");
-		build.append("\n	Part 3 - Stardust Crusaders");
-		for(int i=0;i<mastersCounter[0];i++) {
-			build.append("\n			"+masters[0][i].toString());
-		}
-		build.append("\n	Part 4 - Diamond is Unbreakable");
-		for(int i=0;i<mastersCounter[1];i++) {
-			build.append("\n			"+masters[1][i].toString());
-		}
-		build.append("\n	Part 5 - Vento Aureo");
-		for(int i=0;i<mastersCounter[2];i++) {
-			build.append("\n			"+masters[2][i].toString());
-		}
 		build.append("\nStands");
-		build.append("\n	Part 3 - Stardust Crusaders");
-		for(int i=0;i<standsCounter[0];i++) {
-			build.append("\n			"+stands[0][i].toString());
-		}
-		build.append("\n	Part 4 - Diamond is Unbreakable");
-		for(int i=0;i<standsCounter[1];i++) {
-			build.append("\n			"+stands[1][i].toString());
-		}
-		build.append("\n	Part 5 - Vento Aureo");
-		for(int i=0;i<standsCounter[2];i++) {
-			build.append("\n			"+stands[2][i].toString());
-		}
+		standos=MatrixManager.toString(stands, PARTS, MAX_STANDS);
+		users=MatrixManager.toString(masters, PARTS, MAX_STANDS);
+		build.append(standos);
+		build.append("\nStands Masters");
+		build.append(users);
+
 		return build.toString();
 	}
 	
-	public ArrayList<Stand> returnAsList(){
-		ArrayList<Stand> ans=new ArrayList<Stand>();
-		
-		for(int i=0; i<PARTS;i++) {
-			for(int c=0;c<standsCounter[i];c++) {
-				ans.add(stands[i][c]);
-			}
-		}
-		//System.out.println(ans);
-		return ans;
-	}
 }

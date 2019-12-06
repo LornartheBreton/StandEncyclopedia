@@ -21,6 +21,20 @@ public class MatrixManager {
 		return build.toString();
 	}
 	
+	public static <T extends Comparable <T>> T findInMatrix(T[][] arr,T s,int x,int y) {
+		int xL=0,yL=-1,i=0;
+		
+		while(i<x&&yL==-1) {
+			yL=ArrayManager.search(arr[x], s, y);
+		}
+		if(yL!=-1) {
+			xL=i;
+		}else {
+			yL=0;
+		}
+		
+		return arr[xL][yL];
+	}
 	public static <T extends Comparable <T>> int greatestInColumn(T[][] arr, int y, int lim) {
 		T curr=arr[0][y];
 		int pos=0;
@@ -114,12 +128,12 @@ public class MatrixManager {
 		}
 	}
 	
-	public static <T> int findInColumn(T[][] a,T s, int x, int lim) {
+	public static <T> int findInRow(T[][] a,T s, int x, int lim) {
 		
 		return ArrayManager.search(a[x], s, lim);
 	}
 	
-	public static <T> int findInRow(T[][] a,T s, int y, int lim) {
+	public static <T> int findInColumn(T[][] a,T s, int y, int lim) {
 		int i=0;
 		
 		while(i<lim&&!s.equals(a[i][y])) {

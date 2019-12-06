@@ -12,11 +12,12 @@ public class Master <T extends Comparable<T>>{
 	private String image;
 	private int debut;
 	//Two constructors because we dont have all the info of all Stand users
-	public Master(String name, String namesake, char sex, int debut) {
+	public Master(String name, String namesake, char sex, int debut,String image) {
 		this.name = name;
 		this.namesake = namesake;
 		this.debut = debut;
 		this.sex=sex;
+		this.image=image;
 	}
 
 	public Master(String name, String namesake, double height, char sex, int yearOfBirth, String image,
@@ -33,6 +34,11 @@ public class Master <T extends Comparable<T>>{
 	public Master(String name) {
 		this.name=name;
 	}
+	
+	public Master() {
+
+	}
+
 	public String getName() {
 		return name;
 	}

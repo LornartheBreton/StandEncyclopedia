@@ -44,6 +44,13 @@ public class Stand <T extends Comparable <T>>{
 		masterReference[1]=y;
 	}
 
+	public Stand(String name) {
+		this.name=name;
+	}
+	
+	public Stand() {
+		
+	}
 	public String getName() {
 		return name;
 	}

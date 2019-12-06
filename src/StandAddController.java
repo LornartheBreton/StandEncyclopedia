@@ -11,7 +11,7 @@ import java.util.Scanner;
 /*
  * Copyright Hector G. T. Torres	191589
  * 12/2019
- * Stand add controller
+ * Controller to add stands
  */
 public class StandAddController extends StandAddView{
 	
@@ -26,7 +26,7 @@ public class StandAddController extends StandAddView{
 		
 		public void actionPerformed(ActionEvent e) {
 			int dd=Integer.parseInt(debutT.getText());
-			File stands=new File("Data/stands.csv");
+			File stands=new File("Data/stands.csv");//Have to reRead and rewrite file
 			String misc,m2;
 			StringBuilder build=new StringBuilder();
 			
@@ -77,7 +77,7 @@ public class StandAddController extends StandAddView{
 				m2=build.toString();
 				back.add(m2);
 				back.add(misc);
-				System.out.println(m2);
+
 				scn.close();
 				
 				try(FileWriter fileWriter = new FileWriter("Data/stands.csv")){
@@ -88,7 +88,6 @@ public class StandAddController extends StandAddView{
 						 misc=back.get(i);
 						printWriter.print(misc+"\n"); 
 					 }
-					 printWriter.print("A,A,3,A,A,A,A,A,A,A,A,A,A,A");
 					 printWriter.close();
 				} catch (IOException IOE) {
 					PopUp p=new PopUp(IOE.getMessage());

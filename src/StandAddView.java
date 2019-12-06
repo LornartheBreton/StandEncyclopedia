@@ -7,7 +7,7 @@ import java.awt.GridLayout;
 /*
  * Copyright Hector G. T. Torres	191589
  * 12/2019
- * Primary view to add Stands
+ * Primary view to add Stands, similar to the one to just view them
  */
 public class StandAddView extends JFrame{
 	protected ImageIcon img;

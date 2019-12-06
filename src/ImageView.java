@@ -12,19 +12,22 @@ public class ImageView extends JFrame{
 	private ImageIcon icon;
 	private JLabel img;
 	private int x,y;
+	/*
+	 * Chose these dimensions because I tried scaling both x and y
+	 * proportionately by 0.7 and it would horribly distort all images.
+	 * So, since most pictures are about 9:16, I figured this would not distort is as much 
+	 */
 	private final int MAX_RESOLUTION=900,H=500,W=700;
 	
 	public ImageView (String title, String imgPath) {
 		super(title);
 		
-		System.out.println(imgPath);
 		icon=new ImageIcon(imgPath);
 		x=icon.getIconHeight();
 		y=icon.getIconWidth();
-		//System.out.println(x+" "+y);
+		//If above a threshhold, resizes the image
 		if(x>MAX_RESOLUTION||y>MAX_RESOLUTION) {
 			icon=new ImageIcon(new ImageIcon(imgPath).getImage().getScaledInstance(H, W, Image.SCALE_DEFAULT));
-			//System.out.println(x+" "+y);
 		}
 		img=new JLabel(icon);
 		

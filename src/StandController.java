@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 public class StandController extends StandView{
 	
 	private Stand t;
-	private AbilityView a;
+	private AbilityView a;//Abilities have a separate view because they can be LONG
 	private Master user;
 	private MasterView v;
 	private String ability,name,path,imgPath;
@@ -29,7 +29,6 @@ public class StandController extends StandView{
 		imgPath=user.getImage();
 		this.user=user;
 		
-		System.out.println(path);
 		this.checkAbility.addActionListener(new buttonListener());
 		this.checkMaster.addActionListener(new buttonListener());
 		if(this.playBattlecry!=null) {

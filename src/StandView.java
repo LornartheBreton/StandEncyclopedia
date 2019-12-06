@@ -7,10 +7,10 @@ import java.awt.GridLayout;
 /*
  * Copyright Hector G. T. Torres	191589
  * 12/2019
- * Primary Encyclopedia view
+ * Primary Stand view
  */
 public class StandView extends JFrame{
-	protected ImageIcon img;
+	//All the Stand stributes as lables & Stings/chars/ints
 	protected JLabel icon,nameL,debutL,masterL,typeL,namesakeL,abilityL,stats,dL,sL,rL,peL,prL,devL;
 	protected String name,master,type,namesake,ability,battlecry;
 	private Font labelFont;
@@ -35,9 +35,7 @@ public class StandView extends JFrame{
 		dev=stando.getDevelopment();
 		battlecry=stando.getBattleCry();
 		
-		labelFont=new Font("Sans Serif",Font.PLAIN,18);
-		icon=new JLabel();
-		icon.setIcon(img);
+		labelFont=new Font("Sans Serif",Font.PLAIN,18);//Again, best font config
 		nameL=new JLabel("Name: "+name);
 		nameL.setFont(labelFont);
 		debutL=new JLabel("Debut: Part "+debut);

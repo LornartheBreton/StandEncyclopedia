@@ -1,12 +1,17 @@
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.StringWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.Border;
@@ -17,7 +22,7 @@ import javax.swing.border.Border;
  */
 public class PrimaryController extends PrimaryView{
 	StandController stando;
-	ImageView img;
+	ImageView img;//Viewer for all images, no interaction, doesnt need a controller
 	
 	public PrimaryController(String title) {
 		super (title);
@@ -28,8 +33,49 @@ public class PrimaryController extends PrimaryView{
 		search.addActionListener(new searchListener());
 		addStand.addActionListener(new addStandListener());
 		update.addActionListener(new updateListener());
+		removeStand.addActionListener(new removeStandListener());
 	}
-	
+	//Listener for the remove Stand button
+	private class removeStandListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e) {
+			ArrayList<String> back=new ArrayList<String>();
+			String n=search.getText(),misc;
+			File stands=new File("Data/stands.csv");
+			System.out.println(n);
+			//Used UTF-8 because I used Excel to make the csvs and Excel encodes in UTF-8
+			try(Scanner scn=new Scanner(stands,"UTF-8")){
+				while(scn.hasNextLine()) {
+					misc=scn.nextLine();
+					//System.out.println(misc.contains(n));
+					if(!misc.contains(n+",")) {
+						back.add(misc);
+					}
+				}
+				
+				scn.close();
+				
+				try(FileWriter fileWriter = new FileWriter("Data/stands.csv")){
+					 PrintWriter printWriter = new PrintWriter(fileWriter);
+					 
+					 printWriter.print("name,master,debut,destructive,speed,range,persistence,precision,development,type,ability,image,battleCry,namesake\n");
+					 for(int i=1;i<back.size();i++) {
+						misc=back.get(i);
+						System.out.println(misc);
+						printWriter.print(misc+"\n");//It would not work whitout the \n 
+					 }
+					 printWriter.close();
+				} catch (IOException IOE) {
+					PopUp p=new PopUp(IOE.getMessage());
+				}
+				
+			} catch (FileNotFoundException fnfe) {
+				PopUp p=new PopUp(fnfe.getMessage());
+			}
+		}
+		
+	}
+	//Listener for the update button
 	private class updateListener implements ActionListener{
 		
 		public void actionPerformed(ActionEvent e) {
@@ -37,11 +83,12 @@ public class PrimaryController extends PrimaryView{
 			
 			removeScrollPane();
 			enc.readStandFile();
-			enc.readStandFile();
 			list=enc.returnAsList();
+			//System.out.println(list);
 			updateScrollPane(list);
 		}
 	}
+	//Looks up master and Stand and lauches the windows
 	private class standListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent e) {
@@ -57,7 +104,7 @@ public class PrimaryController extends PrimaryView{
 		}
 		
 	}
-	
+	//Stand listener. Just opens the window
 	private class addStandListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent e) {
@@ -65,54 +112,61 @@ public class PrimaryController extends PrimaryView{
 		}
 		
 	}
-	
+	//This is needed for the updates 
 	private void removeScrollPane(){
 		remove(scrollPane);	
 	}
-	
+	//Updates view after rereading files
 	private void updateScrollPane(ArrayList<Stand> list) {
+		String name;
+		JButton temp;
+		
+		size=list.size();
+		buttons=new ArrayList<JButton>();
+		
 		JPanel p=new JPanel();
-		p.setLayout(new GridBagLayout());
-		GridBagConstraints c=new GridBagConstraints();
+		p.setLayout(new GridLayout(0,3));
 		Border gap=BorderFactory.createEmptyBorder(5,5,5,5);
 		p.setBorder(gap);
-		scrollPane=new JScrollPane(p,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		
-		c.ipadx=600;
-		c.ipady=20;
-		c.gridx=0;
-		c.gridy=0;
-		p.add(search,c);
-		c.ipadx=600;
-		c.ipady=10;
-		for(int i=1;i<size;i++) {
-			c.gridy=i;
-			p.add(buttons.get(i-1),c);
+		scrollPane=new JScrollPane(p,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		for(int i=0;i<size;i++) {
+			name=list.get(i).getName();
+			temp=new JButton(name);
+			temp.setFont(font);
+			buttons.add(temp);
 		}
-		c.ipadx=10;
-		c.ipady=20;
-		c.gridy=0;
-		c.gridx=2;
-		p.add(addStand,c);
-		c.gridy=1;
-		c.gridx=2;
-		p.add(addMaster,c);
-		c.gridx=0;
-		c.gridy=0;
-		p.add(removeStand,c);
-		c.gridx=0;
-		c.gridy=1;
-		p.add(removeMaster,c);
+		p.add(removeStand);
+		p.add(search);
+		p.add(addStand);
+		p.add(new JLabel());
+		p.add(buttons.get(0));
+		p.add(update);
+		p.add(new JLabel());
+		p.add(buttons.get(1));
+		p.add(new JLabel());
+		
+		for(int i=2;i<size;i++) {
+			p.add(new JLabel());
+			p.add(buttons.get(i));
+			p.add(new JLabel());
+		}
+		
+		this.add(scrollPane);
+		this.setVisible(true);
+		this.pack();
+		//this.setBounds(50,50, 900, 800);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		for(int i=0; i<size;i++) {
 			buttons.get(i).addActionListener(new standListener());
 		}
 		search.addActionListener(new searchListener());
 		addStand.addActionListener(new addStandListener());
-		
+
 		this.add(scrollPane);
+		this.setBounds(50,50, 900, 800);//Didnt use pack here because it removes the scroll bar for some reason
 		this.setVisible(true);
 	}
-	
+	//Listener for search bar
 	private class searchListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent e) {
@@ -120,6 +174,7 @@ public class PrimaryController extends PrimaryView{
 			String name;
 			JButton temp;
 			
+			//remakes the list
 			buttons=new ArrayList<JButton>();
 			list=enc.returnAsList(search);
 			size=list.size();
@@ -129,7 +184,7 @@ public class PrimaryController extends PrimaryView{
 				temp.setFont(font);
 				buttons.add(temp);
 			}
-			removeScrollPane();
+			//updates the JFrame
 			updateScrollPane(list);
 		}
 		

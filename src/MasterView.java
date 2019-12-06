@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 /*
  * Copyright Hector G. T. Torres	191589
  * 12/2019
- * View for the Master class
+ * View for the Master class, only displays the basic data. Some labels, nothing fancy
  */
 public class MasterView extends JFrame{
 	protected JLabel nameL,namesakeL,sexL,yOBL,debutL,heightL;

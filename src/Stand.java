@@ -14,7 +14,8 @@ public class Stand <T extends Comparable <T>>{
 	private String battleCry;
 	private String namesake;//Most Stands are named after bands, songs or Tarot cards (i.e. Red Hot Chilli Peppers, Dirty Deeds Done Dirt Cheap, The World)
 	private String image;
-	//Two constructors because not all Stands have Battlecries (i.e. Love Deluxe)
+	
+	//Four constructors because not all Stands have Battlecries (i.e. Love Deluxe), and I need an extra one to search
 	public Stand(String name,int debut, String master, char[] stats, String type, String ability, String namesake,
 			String image, int y) {
 		this.name = name;
@@ -54,7 +55,7 @@ public class Stand <T extends Comparable <T>>{
 	public String getName() {
 		return name;
 	}
-
+	//Getters & setters
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -123,7 +124,7 @@ public class Stand <T extends Comparable <T>>{
 	public void setNamesake(String namesake) {
 		this.namesake = namesake;
 	}
-
+	//The image location (relative)
 	public String getImage() {
 		return "Data/Stands/Images/"+image;
 	}
@@ -131,7 +132,7 @@ public class Stand <T extends Comparable <T>>{
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+	//Each stat is returned individually in order to have better clarity in the future
 	public char getDestructive() {
 		return stats[0];
 	}
@@ -203,6 +204,7 @@ public class Stand <T extends Comparable <T>>{
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+		
 	}
 	
 	public int compareTo(Stand comp) {

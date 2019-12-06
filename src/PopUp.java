@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
  * Class to display popup messages
  */
 public class PopUp {
-	
+	//String is the message
 	public PopUp(String mess) {
 		JFrame parent = new JFrame();
 	    JOptionPane.showMessageDialog(parent, mess);

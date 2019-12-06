@@ -30,7 +30,7 @@ public class Master <T extends Comparable<T>>{
 		this.image = image;
 		this.debut = debut;
 	}
-	
+	//Obligatory Search and default constructors
 	public Master(String name) {
 		this.name=name;
 	}
@@ -38,7 +38,7 @@ public class Master <T extends Comparable<T>>{
 	public Master() {
 
 	}
-
+	//getters & setters mostly (its the most basic class)
 	public String getName() {
 		return name;
 	}
@@ -80,6 +80,7 @@ public class Master <T extends Comparable<T>>{
 	}
 
 	public String getImage() {
+		//In case no image is found (done because some of the pics used to give me headaches)
 		String ans="Data/NF.png";
 		if(image!=null)
 			ans="Data/Users/Pics/"+image;

@@ -1,7 +1,6 @@
 import javax.swing.JFrame;
 
 import java.awt.Font;
-import java.awt.Image;
 
 import javax.swing.*;
 /*

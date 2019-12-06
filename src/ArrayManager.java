@@ -240,22 +240,22 @@ public class ArrayManager {
 		return ans;
 	}
 	
-	public static <T extends Comparable<T>> int disorderedDeletion(T[] arr, T value) {
+	public static <T> int disorderedDeletion(T[] arr, T value) {
 		int ans=-1;
-		int pos,o=0;
+		int pos;
 		
-		pos=search(arr,value,arr.length-1);
+		pos=search(arr,value,arr.length);
+		System.out.println(pos);
 		if(pos>=0&&pos<arr.length) {
 			ans=0;
-			for(int i=pos;i<arr.length-1;i++) {
+			for(int i=pos;i<arr.length;i++) {
 				arr[i]=arr[i+1];
 			}
 			arr[arr.length-1]=null;
 		}
 		if(ans==0) {
-			while(!arr[o].equals(null)) {
+			while(arr[0]!=null) {
 				ans++;
-				o++;
 			}
 		}
 		
@@ -320,61 +320,5 @@ public class ArrayManager {
 		
 		return ans;
 	}
-	
-	//Tarea EXTRA
-		/*public static int union(double[] x, double[] y,double[] z) {
-			int c1=0,c2=0,c3=0,ans=0,c=0;
-			
-			while(c1<x.length&&c2<y.length&&c3<z.length) {
-				if(x[c1]<=y[c2]) {
-					z[c3]=x[c1];
-					if(x[c1]==y[c2]) {
-						c2++;
-					}
-					c1++;
-				}else {
-					z[c3]=y[c2];
-					c2++;
-				}
-				c3++;
-			}
-			
-			if(c1<x.length) {
-				for(int i=c1;i<=x.length&&c3<z.length;i++) {
-					z[c3]=x[i];
-					System.out.println(i+" "+z.length);
-					c3++;
-				}
-			}
-			if(c2<y.length){
-				for(int i=c2;i<=x.length&&c3<z.length;i++) {
-					z[c3]=y[i];
-					System.out.println(i+" "+z.length);
-					c3++;
-				}
-			}
-			
-			while(c<z.length&&z[c]!=0) {
-				ans++;
-				c++;
-			}
-			
-			return ans;
-		}
-		
-		public static void removeDuplicates(double[] arr, int n) {
-			directSelection(arr, arr.length-1);
-			int c=1;
-			
-			if(n>=0&&n<arr.length) {
-				for(int i=0;i<=n;i++) {
-					while(i+c<arr.length&&arr[i]!=0.0
-							&&arr[i]==arr[i+c]) {
-						arr[i+c]=0.0;
-					}
-					c=1;
-				}
-				directSelection(arr,arr.length-1);
-			}
-		}*/
+
 }
